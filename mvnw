@@ -21,6 +21,21 @@
 # ----------------------------------------------------------------------------
 # Apache Maven Wrapper startup batch script, version 3.3.4
 #
+# PROJECT-SPECIFIC JDK CONFIGURATION
+# This project uses its own JDK (Java 25) via SDKMAN
+# This ensures complete isolation from other projects
+# ----------------------------------------------------------------------------
+# Set project-specific JAVA_HOME before anything else
+# Priority: SDKMAN Java 25 (as specified in .sdkmanrc)
+if [ -d "$HOME/.sdkman/candidates/java/25.0.2-amzn" ]; then
+    export JAVA_HOME="$HOME/.sdkman/candidates/java/25.0.2-amzn"
+elif [ -d "$HOME/.sdkman/candidates/java/current" ]; then
+    # Fallback to SDKMAN current if specific version not found
+    export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
+fi
+# If you want to use a different JDK location, uncomment and modify:
+# export JAVA_HOME="/path/to/your/jdk"
+
 # Optional ENV vars
 # -----------------
 #   JAVA_HOME - location of a JDK home dir, required when download maven via java source
